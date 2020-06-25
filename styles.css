@@ -35,6 +35,7 @@
 }
 .info{
   min-width: 336px;
+  min-height: 77px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -47,8 +48,7 @@
   color: #FFF;
   margin: 0;
   padding: 18px 17px 0 0;
-  min-width: 295px;
-  max-height: 43px;
+  max-width: 523px;
 }
 .info__job{
   font-weight: normal;
@@ -57,7 +57,7 @@
   color: #FFF;
   margin: 0;
   padding-top: 16px;
-  min-width: 336px;
+  min-width: 582px;
 }
 .profile__edit-btn{
   background-image: url(./images/edit-btn.svg);
@@ -298,7 +298,7 @@
     min-width: 210px;
   }
   .form-field{
-    min-width: 206px;
+    min-width: 210px;
   }
   .form-job{
     min-width: 210px;
