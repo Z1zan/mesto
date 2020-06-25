@@ -12,7 +12,6 @@
     font-size: 27px;
     text-align: center;
     padding: 0 0 0 30px;
-    min-width: 201px;
-    max-height: 38px;
+    max-width: 201px;
   }
 }
