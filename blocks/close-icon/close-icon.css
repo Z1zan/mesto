@@ -1,0 +1,8 @@
+.close-icon{
+  background-image: url(../../images/close-icon.svg);
+  background-size: 100%;
+  min-width: 58px;
+  min-height: 58px;
+  align-self: flex-end;
+  margin: 0;
+}

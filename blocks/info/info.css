@@ -1,0 +1,19 @@
+@import url(./__name/info__name.css);
+@import url(./__edit-btn/info__edit-btn.css);
+@import url(./__job/info__job.css);
+
+.info{
+  min-width: 336px;
+  min-height: 77px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 881px){
+  .info{
+    min-width: 100%;
+    padding-left: 0;
+  }
+}

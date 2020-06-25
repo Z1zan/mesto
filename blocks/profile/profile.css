@@ -1,0 +1,16 @@
+@import url(./__avatar/profile__avatar.css);
+@import url(./__add-btn/profile__add-btn.css);
+
+.profile{
+  display: flex;
+  flex-direction: row;
+  padding: 40px 0 0 0;
+}
+
+
+@media screen and (max-width: 881px){
+  .profile{
+    flex-direction: column;
+    padding: 42px 0 0 0;
+  }
+}

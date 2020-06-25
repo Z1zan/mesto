@@ -1,13 +1,15 @@
 let Popup = document.querySelector('.popup');
-let editButton = document.querySelector('.profile__edit-btn');
+let editButton = document.querySelector('.info__edit-btn');
 let closeButton = document.querySelector('.close-icon');
 
 function openPopup() {
+  Popup.classList.remove('popup');
   Popup.classList.add('popup_opened');
 }
 
 function closePopup() {
   Popup.classList.remove('popup_opened');
+  Popup.classList.add('popup');
 }
 
 editButton.addEventListener('click', openPopup);
@@ -21,8 +23,8 @@ let jobOutput = document.querySelector('.info__job');
 
 function formSubmitHandler() {
 
-  let nameInput = document.querySelector('.form-name__field');
-  let jobInput = document.querySelector('.form-job__field');
+  let nameInput = document.querySelector('.name-field');
+  let jobInput = document.querySelector('.job-field');
 
   nameOutput.textContent = nameInput.value;
   jobOutput.textContent = jobInput.value;
@@ -31,16 +33,6 @@ function formSubmitHandler() {
 }
 
 submitButton.addEventListener('click', formSubmitHandler);
-
-
-
-
-
-
-
-//let form = document.querySelector('.block-popup');
-
-//block-popup.addEventListener('keydown', formSubmitHandler);
 
 
 

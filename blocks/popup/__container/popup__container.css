@@ -1,0 +1,15 @@
+.popup__container{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  min-width: 546px;
+}
+@media screen and (max-width: 881px){
+  .popup__container{
+    min-width: 282px;
+  }
+}
