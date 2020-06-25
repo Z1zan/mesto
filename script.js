@@ -15,8 +15,8 @@ closeButton.addEventListener('click', closePopup);
 
 let formElement = document.querySelector('.form-field');
 let submitButton = document.querySelector('.block-popup__submit-btn');
-let name = document.querySelector('.info__name');
-let job = document.querySelector('.info__job');
+let nameOutput = document.querySelector('.info__name');
+let jobOutput = document.querySelector('.info__job');
 
 
 function formSubmitHandler() {
@@ -24,10 +24,23 @@ function formSubmitHandler() {
   let nameInput = document.querySelector('.form-name__field');
   let jobInput = document.querySelector('.form-job__field');
 
-  name.textContent = nameInput.value;
+  nameOutput.textContent = nameInput.value;
+  jobOutput.textContent = jobInput.value;
 
-  job.textContent = jobInput.value;
+  closePopup();
 }
 
 submitButton.addEventListener('click', formSubmitHandler);
+
+
+
+
+
+
+
+//let form = document.querySelector('.block-popup');
+
+//block-popup.addEventListener('keydown', formSubmitHandler);
+
+
 
