@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Mesto Russia</title>
+  </head>
+  <body class="body">
+    <div class="page">
+      <header class="header">
+        <img class="header__logo" src="./images/header-logo.svg" alt="Mestro-Russia">
+        <div class="header__line"></div>
+      </header>
+      <main class="main">
+        <div class="profile">
+          <img class="profile__avatar" src="./images/Avatar.svg" alt="avatar">
+          <div class="info">
+            <h2 class="info__name">Жак-Ив Кусто</h2>
+            <a class="profile__edit-btn opacity" href="#"></a>
+            <p class="info__job">Исследователь океана</p>
+          </div>
+          <a class="profile__add-btn opacity" href="#"></a>
+        </div>
+        <div class="elements">
+          <div class="element">
+            <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+            <div class="text">
+              <p class="text__name">Карачаево-Черкессия</p>
+              <a class="text__like opacity" href="#"></a>
+            </div>
+          </div>
+          <div class="element">
+            <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
+            <div class="text">
+              <p class="text__name">Гора Эльбрус</p>
+              <a class="text__like opacity" href="#"></a>
+            </div>
+          </div>
+          <div class="element">
+            <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
+            <div class="text">
+              <p class="text__name">Домбай</p>
+              <a class="text__like opacity" href="#"></a>
+            </div>
+          </div>
+          <div class="element">
+            <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
+            <div class="text">
+              <p class="text__name">Гора Эльбрус</p>
+              <a class="text__like opacity" href="#"></a>
+            </div>
+          </div>
+          <div class="element">
+            <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
+            <div class="text">
+              <p class="text__name">Домбай</p>
+              <a class="text__like opacity" href="#"></a>
+            </div>
+          </div>
+          <div class="element">
+            <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаево-Ч">
+            <div class="text">
+              <p class="text__name">Карачаево-Черкессия</p>
+              <a class="text__like opacity" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <h3 class="footer__copyright">&copy; 2020 Mesto Russia</h3>
+      </footer> -->
+      <div class="popup">
+        <div class="popup__container">
+          <a class="close-icon opacity" href="#"></a>
+          <div class="block-popup">
+            <h2 class="block-popup__title">Редактировать профиль</h2>
+            <div class="form-name">
+              <input class="form-name__field form-field" type="text" value="Жак-Ив Кусто">
+              <div class="form-name__line block-popup__line"></div>
+            </div>
+            <div class="form-job">
+              <input class="form-job__field form-field" type="text" value="Исследователь океана">
+              <div class="form-job__line block-popup__line"></div>
+            </div>
+              <input type="submit" value="Сохранить" class="block-popup__submit-btn">
+          </div>
+        </div>
+        <div class="popup__overlay"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
