@@ -1,15 +1,29 @@
+@import url(./__close-btn/block-popup__close-btn.css);
+@import url(./__title/block-popup__title.css);
+@import url(./__form/block-popup__form.css);
+@import url(./__form-name/block-popup__form-name.css);
+@import url(./__field/block-popup__field.css);
+@import url(./__underline/block-popup__underline.css);
+@import url(./__form-job/block-popup__form-job.css);
+@import url(./__submit-btn/block-popup__submit-btn.css);
+
 .popup__container{
+  min-width: 430px;
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
-  min-width: 546px;
 }
+
 @media screen and (max-width: 881px){
   .popup__container{
-    min-width: 282px;
+    min-width: 210px;
   }
 }

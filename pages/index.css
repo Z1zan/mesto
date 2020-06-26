@@ -11,5 +11,5 @@
 @import url(../blocks/text/text.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/close-icon/close-icon.css);
-@import url(../blocks/block-popup/block-popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/underline/underline.css);

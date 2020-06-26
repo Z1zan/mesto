@@ -1,0 +1,18 @@
+@import url(./_name/popup__field_name.css);
+@import url(./_job/popup__field_job.css);
+.popup__field{
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 36px;
+  margin-left: 36px;
+  margin-bottom: 13px;
+  min-width: 354px;
+  border: 0;
+}
+
+@media screen and (max-width: 881px){
+  .popup__field{
+    min-width: 210px;
+  }
+}

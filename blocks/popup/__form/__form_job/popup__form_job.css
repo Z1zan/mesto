@@ -1,0 +1,8 @@
+.popup__form_job{
+  margin: 30px 36px 0 36px;
+}
+@media screen and (max-width: 881px){
+  .popup__form_job{
+    min-width: 210px;
+  }
+}

@@ -4,6 +4,8 @@
   height: 50px;
   margin: auto 0 auto auto;
   background-size: cover;
+  border: 0;
+  background-color: #000;;
 }
 @media screen and (max-width: 881px){
   .profile__add-btn{

@@ -1,0 +1,6 @@
+@import url(./__form_name/popup__form_name.css);
+@import url(./__form_job/popup__form_job.css);
+
+.popup__form{
+  min-width: 358px;
+}

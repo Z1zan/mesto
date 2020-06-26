@@ -9,85 +9,77 @@
   <body class="body">
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/header-logo.svg" alt="Mestro-Russia">
+        <img class="header__logo" src="./images/header-logo.svg" alt="Место Россия">
         <div class="header__line"></div>
       </header>
       <main class="main">
         <div class="profile">
-          <img class="profile__avatar" src="./images/Avatar.svg" alt="avatar">
-          <div class="info">
-            <h2 class="info__name">Жак-Ив Кусто</h2>
-            <a class="info__edit-btn opacity" href="#"></a>
-            <p class="info__job">Исследователь океана</p>
+          <img class="profile__avatar" src="./images/Avatar.svg" alt="аватар">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-btn opacity" type="button" href="#"></button>
+            <p class="profile__job">Исследователь океана</p>
           </div>
-          <a class="profile__add-btn opacity" href="#"></a>
+          <button class="profile__add-btn opacity" type="button" href="#"></button>
         </div>
         <div class="elements">
           <div class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-            <div class="text">
-              <p class="text__name">Карачаево-Черкессия</p>
-              <a class="text__like opacity" href="#"></a>
+            <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия">
+            <div class="element__text">
+              <p class="element__name">Карачаево-Черкессия</p>
+              <button class="element__like opacity" type="button" href="#"></button>
             </div>
           </div>
           <div class="element">
             <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
-            <div class="text">
-              <p class="text__name">Гора Эльбрус</p>
-              <a class="text__like opacity" href="#"></a>
+            <div class="element__text">
+              <p class="element__name">Гора Эльбрус</p>
+              <button class="element__like opacity" type="button" href="#"></button>
             </div>
           </div>
           <div class="element">
             <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
-            <div class="text">
-              <p class="text__name">Домбай</p>
-              <a class="text__like opacity" href="#"></a>
+            <div class="element__text">
+              <p class="element__name">Домбай</p>
+              <button class="element__like opacity" type="button" href="#"></button>
             </div>
           </div>
           <div class="element">
             <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
-            <div class="text">
-              <p class="text__name">Гора Эльбрус</p>
-              <a class="text__like opacity" href="#"></a>
+            <div class="element__text">
+              <p class="element__name">Гора Эльбрус</p>
+              <button class="element__like opacity" type="button" href="#"></button>
             </div>
           </div>
           <div class="element">
             <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
-            <div class="text">
-              <p class="text__name">Домбай</p>
-              <a class="text__like opacity" href="#"></a>
+            <div class="element__text">
+              <p class="element__name">Домбай</p>
+              <button class="element__like opacity" type="button" href="#"></button>
             </div>
           </div>
           <div class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаево-Ч">
-            <div class="text">
-              <p class="text__name">Карачаево-Черкессия</p>
-              <a class="text__like opacity" href="#"></a>
+            <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия">
+            <div class="element__text">
+              <p class="element__name">Карачаево-Черкессия</p>
+              <button class="element__like opacity" type="button" href="#"></button>
             </div>
           </div>
         </div>
       </main>
       <footer class="footer">
-        <h3 class="footer__copyright">&copy; 2020 Mesto Russia</h3>
-      </footer> -->
-      <div class="popup">
-        <div class="popup__container">
-          <a class="close-icon opacity" href="#"></a>
-          <div class="block-popup">
-            <h2 class="block-popup__title">Редактировать профиль</h2>
-            <div class="block-popup__form block-popup__form-name">
-              <input class="block-popup__field name-field" type="text" value="Жак-Ив Кусто">
-              <div class="block-popup__underline"></div>
-            </div>
-            <div class="block-popup__form block-popup__form-job">
-              <input class="block-popup__field job-field" type="text" value="Исследователь океана">
-              <div class="block-popup__underline"></div>
-            </div>
-              <input type="submit" value="Сохранить" class="block-popup__submit-btn">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+      </footer>
+      <form class="popup">
+          <div class="popup__container"> 
+            <button class="popup__close-btn opacity" type="button" href="#"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input class="popup__field popup__field_name underline" type="text" value="">
+            <input class="popup__field popup__field_job underline" type="text" value="">
+            <button type="submit" class="popup__submit-btn">Сохранить</button>
           </div>
-        </div>
         <div class="popup__overlay"></div>
-      </div>
+      </form>
     </div>
     <script src="./script.js"></script>
   </body>

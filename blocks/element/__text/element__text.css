@@ -1,0 +1,9 @@
+.element__text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 240px;
+  min-height: 23px;
+  margin: 0 auto;
+  padding-top: 25px;
+}

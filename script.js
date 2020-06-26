@@ -1,31 +1,36 @@
-let Popup = document.querySelector('.popup');
-let editButton = document.querySelector('.info__edit-btn');
-let closeButton = document.querySelector('.close-icon');
+let popup = document.querySelector('.popup');
+let editButton = document.querySelector('.profile__edit-btn');
+let closeButton = document.querySelector('.popup__close-btn');
+
+let formElement = document.querySelector('.form-field');
+let submitButton = document.querySelector('.popup__submit-btn');
+let nameOutput = document.querySelector('.profile__name');
+let jobOutput = document.querySelector('.profile__job');
+
+let nameInput = document.querySelector('.popup__field_name');
+let jobInput = document.querySelector('.popup__field_job');
+
+
+function copyTextContent() {
+  nameInput.value = nameOutput.textContent;
+  jobInput.value = jobOutput.textContent;
+}
 
 function openPopup() {
-  Popup.classList.remove('popup');
-  Popup.classList.add('popup_opened');
+  popup.classList.toggle('popup_opened');
+  copyTextContent();
 }
 
 function closePopup() {
-  Popup.classList.remove('popup_opened');
-  Popup.classList.add('popup');
+  popup.classList.toggle('popup_opened');
+  copyTextContent();
 }
 
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
 
-let formElement = document.querySelector('.form-field');
-let submitButton = document.querySelector('.block-popup__submit-btn');
-let nameOutput = document.querySelector('.info__name');
-let jobOutput = document.querySelector('.info__job');
-
 
 function formSubmitHandler() {
-
-  let nameInput = document.querySelector('.name-field');
-  let jobInput = document.querySelector('.job-field');
-
   nameOutput.textContent = nameInput.value;
   jobOutput.textContent = jobInput.value;
 
