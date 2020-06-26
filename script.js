@@ -23,7 +23,6 @@ function openPopup() {
 
 function closePopup() {
   popup.classList.toggle('popup_opened');
-  copyTextContent();
 }
 
 editButton.addEventListener('click', openPopup);
