@@ -134,10 +134,17 @@ const templateCards = function() {
     cardsElement.querySelector('.element__image').src = item.link;
     cardsElement.querySelector('.element__image').alt = item.name;
     cardsElement.querySelector('.element__name').textContent = item.name;
+
     const likeButton = cardsElement.querySelector('.element__like-btn')
     likeButton.addEventListener('click', function(evt){
       evt.target.classList.toggle('element__like-btn_active');
     });
+
+      const deleteCard = cardsElement.querySelector('.element');
+      deleteCard.addEventListener('click', function(evt){
+        evt.target.closest('.element__trash');
+        deleteCard.remove();
+      });
 
     cardContainer.append(cardsElement);
   });
