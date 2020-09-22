@@ -1,11 +1,12 @@
-.element__like{
+.element__like-btn{
   background-image: url(../../../images/like.svg);
   background-color: #fff;
   width: 21px;
   height: 18px;
   margin: 0;
   border: 0;
+  cursor: pointer;
 }
-.element__like:hover{
+.element__like-btn:hover{
   opacity: .6;
 }

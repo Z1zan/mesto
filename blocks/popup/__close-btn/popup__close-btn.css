@@ -8,6 +8,7 @@
   right: -45px;
   border: 0;
   background-color: transparent;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 354px){

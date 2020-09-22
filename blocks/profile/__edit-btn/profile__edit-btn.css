@@ -6,6 +6,7 @@
   margin-top: 37px;
   background-size: cover;
   border: 0;
+  cursor: pointer;
 }
 @media screen and (max-width: 881px){
   .profile__edit-btn{

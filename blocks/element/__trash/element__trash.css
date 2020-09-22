@@ -3,10 +3,11 @@
   background-color: transparent;
   position: relative;
   top: -351px;
-  right: -249px;
+  right: -248px;
   width: 18px;
   height:19.3px;
   border: 0;
+  cursor: pointer;
 }
 .element__trash:hover{
   opacity: .6;
