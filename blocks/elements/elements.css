@@ -1,15 +1,14 @@
 .elements{
   padding-top: 50px;
   display: grid;
-  grid-template-columns: 282px 282px 282px;
-  grid-template-rows: 361px 361px;
+  grid-template-columns: repeat(3, 282px);
+  grid-auto-rows: auto;
   grid-gap: 21px 18px;
 }
 @media screen and (max-width: 881px){
   .elements{
     padding-top: 36px;
     grid-template-columns: 282px;
-    grid-template-rows: 361px 361px 361px 361px 361px 361px;
     grid-gap: 20px;
   }
 }
