@@ -4,6 +4,10 @@
 @import url(./__field/popup__field.css);
 @import url(./__submit-btn/popup__submit-btn.css);
 @import url(./__overlay/popup__overlay.css);
+
 .popup{
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s, opacity .3s linear;
 }
