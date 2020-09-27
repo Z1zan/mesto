@@ -135,5 +135,8 @@ submitAddButton.addEventListener('click', function(evt) {
 
   addCard(cardContainer, createCard(name.value, link.value));
 
+  name.value = '';
+  link.value = '';
+
   togglePopupAdd();
 });
