@@ -140,3 +140,17 @@ submitAddButton.addEventListener('click', function(evt) {
 
   togglePopupAdd();
 });
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+}
+
+/*const toggleButtonState = (inputList, buttonElement) => {
+  if(hasInvalidInput(inputList)) {
+    buttonElement.classList.add('.popup__submit-btn_inactive');
+  } else {
+    buttonElement.classList.remove('.popup__submit-btn_inactive');
+  }
+}*/

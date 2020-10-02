@@ -17,6 +17,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 0 13px 0;
 }
+.popup__field:not(:focus):invalid{
+border-bottom: 1px solid #ff0000;
+}
 
 @media screen and (max-width: 881px){
   .popup__field{
