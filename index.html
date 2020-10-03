@@ -42,7 +42,7 @@
             <span class="popup__form-field-error" id="input-job-error">Вы пропустили это поле.</span>
           </div>
           
-          <button type="submit" class="popup__submit-btn submit-edit-btn">Сохранить</button>
+          <button class="popup__submit-btn submit-edit-btn" type="submit">Сохранить</button>
         </section>
         <div class="popup__overlay"></div>
       </form>
@@ -50,9 +50,14 @@
         <div class="popup__container"> 
           <button class="popup__close-btn popup-add__close-btn opacity" type="reset"></button>
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__field popup__field_name-photo" type="text" name="namePhoto" value="" placeholder="Название" required>
-
-          <input class="popup__field popup__field_link-photo" type="url" name="linkPhoto" value="" placeholder="Ссылка на картинку" required>
+          <div class="popup__form">
+            <input class="popup__field popup__field_name-photo" id="input-photo" type="text" name="namePhoto" value="" placeholder="Название" required minlength="2" maxlength="30">
+            <span class="popup__form-field-error" id="input-photo-error">Вы пропустили это поле.</span>
+          </div>
+          <div class="popup__form">
+            <input class="popup__field popup__field_link-photo" id="input-link" type="url" name="linkPhoto" value="" placeholder="Ссылка на картинку" required>
+            <span class="popup__form-field-error" id="input-link-error">Вы пропустили это поле.</span>
+          </div>
 
           <button type="submit" class="popup__submit-btn submit-add-btn">Создать</button>
         </div>

@@ -1,7 +1,7 @@
 @import url(./_name/popup__field_name.css);
 @import url(./_job/popup__field_job.css);
-@import url(./_name-photo/_name-photo.css);
-@import url(./_url-photo/_url-photo.css);
+@import url(./_name-photo/popup__field_name-photo.css);
+@import url(./_url-photo/popup__field_link-photo.css);
 
 .popup__field{
   font-weight: normal;
@@ -17,9 +17,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 0 13px 0;
 }
-.popup__field:not(:focus):invalid{
+/* .popup__field:not:invalid{
 border-bottom: 1px solid #ff0000;
-}
+} */
 
 @media screen and (max-width: 881px){
   .popup__field{

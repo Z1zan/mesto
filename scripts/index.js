@@ -154,3 +154,4 @@ const hasInvalidInput = (inputList) => {
     buttonElement.classList.remove('.popup__submit-btn_inactive');
   }
 }*/
+
