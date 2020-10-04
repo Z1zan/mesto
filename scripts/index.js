@@ -23,6 +23,11 @@ const popupImageName = document.querySelector('.popup-img__name');
 const name = document.querySelector('.popup__field_name-photo');
 const link = document.querySelector('.popup__field_link-photo');
 
+const popupOverlayEdit = document.querySelector('.overlay-edit');
+const popupOverlayAdd = document.querySelector('.overlay-add');
+const popupOverlayImg = document.querySelector('.overlay-img');
+
+
 
 
 function copyTextContent() {
@@ -30,25 +35,39 @@ function copyTextContent() {
   jobInput.value = jobOutput.textContent;
 };
 
+function keyHandler(evt) {
+  if(evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    openedPopup.classList.remove('popup_opened');
+  }
+}
+
 function togglePopupEdit() { 
   popupEdit.classList.toggle('popup_opened'); 
   copyTextContent(); 
+  document.addEventListener('keydown', keyHandler);
 };
 editButton.addEventListener('click', togglePopupEdit);
 closePopupEditButton.addEventListener('click', togglePopupEdit);
+popupOverlayEdit.addEventListener('click', togglePopupEdit);
 
 
 function togglePopupAdd() {
   popupAdd.classList.toggle('popup_opened');
+  document.addEventListener('keydown', keyHandler);
 };
 addButton.addEventListener('click', togglePopupAdd);
 closePopupAddButton.addEventListener('click', togglePopupAdd);
+popupOverlayAdd.addEventListener('click', togglePopupAdd);
+
 
 
 function togglePopupImg() {
   popupImage.classList.toggle('popup_opened');
+  document.addEventListener('keydown', keyHandler);
 };
 closePopupImgButton.addEventListener('click', togglePopupImg);
+popupOverlayImg.addEventListener('click', togglePopupImg);
 
 
 function formSubmitHandler(evt) {
