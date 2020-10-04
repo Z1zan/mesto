@@ -1,5 +1,5 @@
 const allSelectors = {
-  formSelector: '.popup',
+  formSelector: '.popup-form',
   inputSelector: '.popup__field',
   submitButtonSelector: '.popup__submit-btn',
   inactiveButtonClass: 'popup__submit-btn_inactive',
@@ -46,34 +46,20 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
-// function hasInvalidInput(inputList) {
-//   return inputList.some(function (inputElement) { // has already been declared (?)
-//     return !inputElement.validity.valid;
-//   })
-// }
-
 function toggleButtonState(inputList, formElement) {
   const buttonElement = formElement.querySelector(allSelectors.submitButtonSelector);
+
   if (hasInvalidInput(inputList)){
     buttonElement.classList.add(allSelectors.inactiveButtonClass);
     buttonElement.setAttribute('disabled', true);
+
   } else {
     buttonElement.classList.remove(allSelectors.inactiveButtonClass);
     buttonElement.removeAttribute('disabled');
+
   }
 };
 
-// const toggleButtonState = (inputList, formElement) => {
-//   const buttonElement = formElement.querySelector('.popup__submit-btn');
-//   const hasInvalidInput = inputList.some((inputElement) => !inputElement.validity.valid);
-//   if (hasInvalidInput) {
-//     buttonElement.classList.add('popup__submit-btn_inactive');
-//     buttonElement.setAttribute('disabled', true);
-//   } else {
-//     buttonElement.classList.remove('popup__submit-btn_inactive'); //need fix
-//     buttonElement.removeAttribute('disabled');
-//   }
-// };
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(allSelectors.inputSelector));
