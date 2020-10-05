@@ -28,8 +28,6 @@ const popupOverlayAdd = document.querySelector('.overlay-add');
 const popupOverlayImg = document.querySelector('.overlay-img');
 
 
-
-
 function copyTextContent() {
   nameInput.value = nameOutput.textContent;
   jobInput.value = jobOutput.textContent;
@@ -42,68 +40,31 @@ function keyHandler(evt) {
   }
 }
 
-function openPopup(item) {
-  return function (evt) {
-    evt.preventDefault();
 
-    item.classList.add('popup_opened'); 
-    copyTextContent(); 
-    document.addEventListener('keydown', keyHandler);
-  }
-
+function openPopup(popup) {
+  popup.classList.add('popup_opened'); 
+  copyTextContent(); 
+  document.addEventListener('keyup', keyHandler);
 }
 
 
-editButton.addEventListener('click', openPopup(popupEdit));
-addButton.addEventListener('click', openPopup(popupAdd));
+editButton.addEventListener('click', () => {openPopup(popupEdit)});
+addButton.addEventListener('click', () => {openPopup(popupAdd)});
 
 
-function closePopup(item) {
-  return function (evt) {
-    evt.preventDefault();
-
-    item.classList.remove('popup_opened'); 
-    document.addEventListener('keydown', keyHandler);
-  }
+function closePopup(popup) {
+  popup.classList.remove('popup_opened'); 
+  document.removeEventListener('keyup', keyHandler);
 }
 
-closePopupEditButton.addEventListener('click', closePopup(popupEdit));
-popupOverlayEdit.addEventListener('click', closePopup(popupEdit));
+closePopupEditButton.addEventListener('click', () => {closePopup(popupEdit)});
+popupOverlayEdit.addEventListener('click', () => {closePopup(popupEdit)});
 
-closePopupAddButton.addEventListener('click', closePopup(popupAdd));
-popupOverlayAdd.addEventListener('click', closePopup(popupAdd));
+closePopupAddButton.addEventListener('click', () => {closePopup(popupAdd)});
+popupOverlayAdd.addEventListener('click', () => {closePopup(popupAdd)});
 
-closePopupImgButton.addEventListener('click', closePopup(popupImage));
-popupOverlayImg.addEventListener('click', closePopup(popupImage));
-
-
-// function togglePopupEdit() { 
-//   popupEdit.classList.toggle('popup_opened'); 
-//   copyTextContent(); 
-//   document.addEventListener('keydown', keyHandler);
-// };
-// editButton.addEventListener('click', togglePopupEdit);
-// closePopupEditButton.addEventListener('click', togglePopupEdit);
-// popupOverlayEdit.addEventListener('click', togglePopupEdit);
-
-
-// function togglePopupAdd() {
-//   popupAdd.classList.toggle('popup_opened');
-//   document.addEventListener('keydown', keyHandler);
-// };
-// addButton.addEventListener('click', togglePopupAdd);
-// closePopupAddButton.addEventListener('click', togglePopupAdd);
-// popupOverlayAdd.addEventListener('click', togglePopupAdd);
-
-
-
-// function togglePopupImg() {
-//   popupImage.classList.toggle('popup_opened');
-//   document.addEventListener('keydown', keyHandler);
-// };
-// closePopupImgButton.addEventListener('click', togglePopupImg);
-// popupOverlayImg.addEventListener('click', togglePopupImg);
-
+closePopupImgButton.addEventListener('click', () => {closePopup(popupImage)});
+popupOverlayImg.addEventListener('click', () => {closePopup(popupImage)});
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -111,8 +72,7 @@ function formSubmitHandler(evt) {
   nameOutput.textContent = nameInput.value; 
   jobOutput.textContent = jobInput.value; 
 
-  // closePopup(popupEdit);
-  popupEdit.classList.remove('popup_opened')
+  closePopup(popupEdit);
 };
 popupEdit.addEventListener('submit', formSubmitHandler);
 
@@ -160,8 +120,7 @@ function createCard(name, link){
     popupImagePic.alt = name;
     popupImageName.textContent = name;
 
-    // openPopup(popupImage);
-    popupImage.classList.add('popup_opened');
+    openPopup(popupImage);
   });
 
   const likeButton = cardsElement.querySelector('.element__like-btn');
@@ -186,7 +145,8 @@ initialCards.forEach(function(item) {
   addCard(cardContainer, createCard(item.name, item.link));
 });
 
-submitAddButton.addEventListener('click', function(evt) {
+
+popupAdd.addEventListener('submit', function(evt) {
   evt.preventDefault();
 
   addCard(cardContainer, createCard(name.value, link.value));
@@ -196,18 +156,4 @@ submitAddButton.addEventListener('click', function(evt) {
 
   closePopup(popupAdd);
 });
-
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
-/*const toggleButtonState = (inputList, buttonElement) => {
-  if(hasInvalidInput(inputList)) {
-    buttonElement.classList.add('.popup__submit-btn_inactive');
-  } else {
-    buttonElement.classList.remove('.popup__submit-btn_inactive');
-  }
-}*/
 

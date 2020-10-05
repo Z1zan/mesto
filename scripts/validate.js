@@ -46,6 +46,13 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+}
+
+
 function toggleButtonState(inputList, formElement) {
   const buttonElement = formElement.querySelector(allSelectors.submitButtonSelector);
 
@@ -60,10 +67,8 @@ function toggleButtonState(inputList, formElement) {
   }
 };
 
-
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(allSelectors.inputSelector));
-  const buttonElement = formElement.querySelector(allSelectors.submitButtonSelector);
 
 
   inputList.forEach((inputElement) => {

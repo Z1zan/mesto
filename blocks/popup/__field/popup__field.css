@@ -10,16 +10,13 @@
   margin-right: 36px;
   margin-left: 36px;
   margin-bottom: 13px;
-  min-width: 354px;
+  min-width: 358px;
   border-top: 0;
   border-left: 0;
   border-right: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 0 13px 0;
 }
-/* .popup__field:not:invalid{
-border-bottom: 1px solid #ff0000;
-} */
 
 @media screen and (max-width: 881px){
   .popup__field{
