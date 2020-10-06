@@ -43,12 +43,16 @@ function keyHandler(evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened'); 
+  document.addEventListener('keyup', keyHandler);
+}
+
+function openEditForm() {
+  popupEdit.classList.add('popup_opened'); 
   copyTextContent(); 
   document.addEventListener('keyup', keyHandler);
 }
 
-
-editButton.addEventListener('click', () => {openPopup(popupEdit)});
+editButton.addEventListener('click', openEditForm);
 addButton.addEventListener('click', () => {openPopup(popupAdd)});
 
 
@@ -57,14 +61,24 @@ function closePopup(popup) {
   document.removeEventListener('keyup', keyHandler);
 }
 
-closePopupEditButton.addEventListener('click', () => {closePopup(popupEdit)});
-popupOverlayEdit.addEventListener('click', () => {closePopup(popupEdit)});
+popupEdit.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup-edit__close-btn') || evt.target.classList.contains('overlay-edit')) {
+    closePopup(popupEdit);
+  }
+});
 
-closePopupAddButton.addEventListener('click', () => {closePopup(popupAdd)});
-popupOverlayAdd.addEventListener('click', () => {closePopup(popupAdd)});
+popupAdd.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup-add__close-btn') || evt.target.classList.contains('overlay-add')) {
+    closePopup(popupAdd);
+  }
+});
 
-closePopupImgButton.addEventListener('click', () => {closePopup(popupImage)});
-popupOverlayImg.addEventListener('click', () => {closePopup(popupImage)});
+popupImage.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup-img__close-btn') || evt.target.classList.contains('overlay-img')) {
+    closePopup(popupImage);
+  }
+});
+
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
