@@ -91,23 +91,14 @@ const setEventListeners = (formElement) => {
 const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(allSelectors.formSelector));
 
-  const inputList = Array.from(document.querySelectorAll(allSelectors.inputSelector));
-
-  // const buttonElement = document.querySelector(allSelectors.submitButtonSelector);
-
   formList.forEach((formElement) => {
-    // const buttonElement = formElement.querySelector(allSelectors.submitButtonSelector);
+    const buttonElement = formElement.querySelector(allSelectors.submitButtonSelector);
 
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      // unDisabledButton(buttonElement);  // не работает
-
-      toggleButtonState(inputList, formElement); // работает
-
+      disabledButton(buttonElement);
     });
     setEventListeners(formElement);
-
-
   });
 };
 
