@@ -23,7 +23,8 @@ const popupAdd = document.querySelector('.popup-add');
 const addButton = document.querySelector('.profile__add-btn');
 
 export const popupImage = document.querySelector('.popup-img');
-
+export const popupImageImg = document.querySelector('.popup-img__img');
+export const popupImageName = document.querySelector('.popup-img__name');
 
 const formInputName = document.querySelector('.popup__field_name-photo');
 const formInputLink = document.querySelector('.popup__field_link-photo');
@@ -37,7 +38,7 @@ function copyTextContent() {
 function keyHandler(evt) {
   if(evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
-    openedPopup.classList.remove('popup_opened');
+    closePopup(openedPopup);
   }
 }
 
@@ -59,7 +60,6 @@ addButton.addEventListener('click', () => {openPopupAdd()});
 function openEditForm() {
   openPopup(popupEdit);
   copyTextContent(); 
-  document.addEventListener('keyup', keyHandler);
 }
 
 editButton.addEventListener('click', openEditForm);

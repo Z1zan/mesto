@@ -1,4 +1,4 @@
-import {popupImage, openPopup} from "./index.js";
+import {popupImage, popupImageImg, popupImageName, openPopup} from "./index.js";
 
 class Card {
   constructor(data, selector) {
@@ -22,9 +22,9 @@ class Card {
     this._element.querySelector('.element__like-btn').classList.toggle('element__like-btn_active');
   }
   _popupImgHandler() {
-    document.querySelector('.popup-img__img').src = this._element.querySelector('.element__image').src;
-    document.querySelector('.popup-img__img').alt = this._element.querySelector('.element__image').alt;
-    document.querySelector('.popup-img__name').textContent = this._element.querySelector('.element__name').textContent;
+    popupImageImg.src = this._element.querySelector('.element__image').src;
+    popupImageImg.alt = this._element.querySelector('.element__image').alt;
+    popupImageName.textContent = this._element.querySelector('.element__name').textContent;
 
     openPopup(popupImage);
   }
