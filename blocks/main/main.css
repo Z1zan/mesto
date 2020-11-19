@@ -2,8 +2,3 @@
   margin: 0 auto;
   max-width: 882px;
 }
-@media screen and (max-width: 881px){
-  .main{
-    max-width: 282px;
-  }
-}
