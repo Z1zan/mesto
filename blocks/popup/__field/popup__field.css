@@ -18,7 +18,7 @@
   padding: 0 0 13px 0;
 }
 
-@media screen and (max-width: 881px){
+@media screen and (max-width: 583px){
   .popup__field{
     min-width: 210px;
   }
