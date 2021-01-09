@@ -1,9 +1,9 @@
-import '../pages/index.css';
+import './index.css';
 
-import Card from './Cards.js';
-import {initialCards} from './initialCards.js';
-import FormValidation from './formValidation.js';
-import allSelectors from './allSelectors.js';
+import Card from '../components/Cards.js';
+import {initialCards} from '../components/initialCards.js';
+import FormValidation from '../components/formValidation.js';
+import allSelectors from '../components/allSelectors.js';
 
 const template = {
   cardsTemplate: '.card-template',
