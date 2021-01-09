@@ -16,4 +16,4 @@
 
 
 ### Сам проект:
-* [Ссылка на Github Pages](https://z1zan.github.io/mesto/)
+* [Ссылка на Github Pages](https://z1zan.github.io/mesto/dist/)
