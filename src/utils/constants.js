@@ -49,7 +49,6 @@ export const initialCards = [
   },
 ];
 
-export const popupEdit = document.querySelector(".popup-edit");
 export const editButton = document.querySelector(".profile__edit-btn");
 
 export const nameOutput = document.querySelector(".profile__name");
@@ -58,12 +57,9 @@ export const jobOutput = document.querySelector(".profile__job");
 export const nameInput = document.querySelector(".popup__field_name");
 export const jobInput = document.querySelector(".popup__field_job");
 
-export const popupAdd = document.querySelector(".popup-add");
 export const addButton = document.querySelector(".profile__add-btn");
 
 export const popupImage = document.querySelector(".popup-img");
 export const popupImageImg = document.querySelector(".popup-img__img");
 export const popupImageName = document.querySelector(".popup-img__name");
 
-export const formInputName = document.querySelector(".popup__field_name-photo");
-export const formInputLink = document.querySelector(".popup__field_link-photo");
