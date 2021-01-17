@@ -75,22 +75,17 @@ class FormValidation {
   };
   
   _setEventListeners() {
-    // const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
     });
-    // this._toggleButtonState(); // ??? need or not
   };
   
 
   
   enableValidation() {
-    // const formList = Array.from(document.querySelectorAll(this._formSelector));
-  
     this._formList.forEach(() => {
       const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   

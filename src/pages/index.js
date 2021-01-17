@@ -2,7 +2,6 @@ import "./index.css";
 
 import * as data from "../utils/constants.js";
 
-// import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Card from "../components/Card.js";
@@ -72,7 +71,6 @@ data.editButton.addEventListener("click", () => {
   data.jobInput.value = profileData.job;
 });
 
-////
 
 const formValidatorAddImg = new FormValidation(
   data.allSelectors.formSelectorAddImg,
@@ -93,5 +91,4 @@ popupAddForm.setEventListeners();
 data.addButton.addEventListener("click", () => {
   formValidatorAddImg.disabledButton();
   popupAddForm.open();
-
 });
