@@ -24,8 +24,7 @@ const userInfo = new UserInfo({
 const createCard = (item) => {
   const card = new Card(item.namePhoto, item.linkPhoto, data.template.cardsTemplate, {
     handleCardClick: () => {
-      popupWithImg.open(item.name, item.link);
-      console.log("handleCard");
+      popupWithImg.open(item.namePhoto, item.linkPhoto);
     },
   });
 
@@ -81,7 +80,6 @@ formValidatorAddImg.enableValidation();
 const popupAddForm = new PopupWithForm(data.template.formAdd, {
   submitForm: (item) => {
     addCardHandler.addItem(createCard(item));
-    console.log(item);
     popupAddForm.close();
   },
 });
