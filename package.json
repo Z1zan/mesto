@@ -37,8 +37,6 @@
     "webpack-dev-server": "^3.11.1"
   },
   "dependencies": {
-    "autoprefix": "^1.0.1",
-    "core-js": "^3.8.2",
-    "save-dev": "0.0.1-security"
+    "core-js": "^3.8.2"
   }
 }

@@ -36,7 +36,7 @@ const addCardHandler = new Section(
   {
     items: data.initialCards,
     renderer: (item) => {
-      addCardHandler.addItem(createCard(item));
+      addCardHandler.addItemEnd(createCard(item));
     },
   },
   data.template.cardContainer
@@ -79,7 +79,7 @@ formValidatorAddImg.enableValidation();
 
 const popupAddForm = new PopupWithForm(data.template.formAdd, {
   submitForm: (item) => {
-    addCardHandler.addItem(createCard(item));
+    addCardHandler.addItemStart(createCard(item));
     popupAddForm.close();
   },
 });

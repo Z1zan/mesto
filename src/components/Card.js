@@ -23,11 +23,12 @@ export default class Card {
   }
 
   _deleteHandler() {
-    return this._element.remove();
+    this._element.remove();
+    this._element = null;
   }
 
   _likeHandler() {
-    return this._cardLike.classList.toggle("element__like-btn_active");
+    this._cardLike.classList.toggle("element__like-btn_active");
   }
 
 
