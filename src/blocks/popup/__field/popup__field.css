@@ -2,6 +2,7 @@
 @import url(./_job/popup__field_job.css);
 @import url(./_name-photo/popup__field_name-photo.css);
 @import url(./_url-photo/popup__field_link-photo.css);
+@import url(./_link-avatar/popup__field_link-avatar.css);
 
 .popup__field{
   font-weight: normal;

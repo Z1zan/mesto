@@ -13,7 +13,10 @@
       </header>
       <main class="main">
         <div class="profile">
-          <img class="profile__avatar" src="<%=require('./images/Avatar.svg')%>" alt="аватар">
+          <!-- <div class="profile__avatar-container"> -->
+            <img class="profile__avatar" src="<%=require('./images/Avatar.svg')%>" alt="аватар">
+            <div class="profile__avatar-overlay"></div>
+          <!-- </div> -->
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__edit-btn opacity" type="button"></button>
@@ -71,6 +74,29 @@
         </div>
         <div class="popup__overlay overlay-img"></div>
       </form>
+
+      <form class="popup popup-del" name="delPhoto">
+        <div class="popup__container">
+          <button class="popup__close-btn popup-del__close-btn opacity" type="reset"></button>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button class="popup__submit-btn submit-del-btn" type="submit">Да</button>
+        </div>
+        <div class="popup__overlay overlay-del"></div>
+      </form>
+
+      <form class="popup popup-avatar" name="addAvatar">
+        <div class="popup__container">
+          <button class="popup__close-btn popup-avatar__close-btn opacity" type="reset"></button>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <div class="popup__form">
+            <input class="popup__field popup__field_link-avatar" id="input-linkAvatar" type="url" name="linkAvatar" value="" placeholder="Ссылка на картинку" required>
+            <span class="popup__form-field-error" id="input-link-error">Вы пропустили это поле.</span>
+          </div>
+          <button class="popup__submit-btn submit-avatar-btn" type="submit">Сохранить</button>
+        </div>
+        <div class="popup__overlay overlay-avatar"></div>
+      </form>
+
     </div>
     <template class="card-template">
       <div class="element">
