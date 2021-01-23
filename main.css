@@ -5,12 +5,13 @@
 .header__line{border-bottom:1px solid rgba(84,84,84,.7)}
 .header{max-width:882px;min-height:74px;padding:45px 0 0;margin:0 auto;display:flex;flex-direction:column;justify-content:space-between}@media screen and (max-width:881px){.header{min-height:56px;padding:28px 0 0}}
 .main{margin:0 auto;max-width:882px}
-.profile__avatar{max-width:120px}@media screen and (max-width:881px){.profile__avatar{margin:0 auto}}
+.profile__avatar{max-width:120px;border-radius:60px;z-index:2}@media screen and (max-width:881px){.profile__avatar{margin:0 auto}}
+.profile__avatar-overlay{opacity:0;background-image:url(images/avatarHover.a086f758840ae814ecde.svg);border-radius:60%;position:absolute;width:120px;height:120px;background-repeat:no-repeat;background-position:50%;z-index:2;transition:opacity .3s ease-in-out;cursor:pointer}.profile__avatar-overlay:hover{opacity:1;background-color:rgba(0,0,0,.6)}
 .profile__info{min-height:77px;display:flex;flex-direction:row;flex-wrap:wrap;padding-left:30px}@media screen and (max-width:881px){.profile__info{padding-left:0;max-width:282px;margin:0 auto}}
 .profile__name{font-weight:500;font-size:42px;line-height:56px;color:#fff;margin:0;padding:18px 17px 0 0;max-width:523px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}@media screen and (max-width:881px){.profile__name{font-size:27px;text-align:center;padding:0 8px 0 30px;max-width:201px}}
 .profile__job{font-weight:400;font-size:18px;line-height:22px;color:#fff;margin:0;padding-top:16px;min-width:582px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}@media screen and (max-width:881px){.profile__job{font-size:14px;line-height:17px;text-align:center;padding-top:14px;min-width:100%;margin:0 auto}}
-.profile__edit-btn{background-image:url(images/edit-btn.a1892ea72cb87c8fc3aa.svg);background-color:#000;background-size:contain;background-repeat:no-repeat;padding:0;width:24px;height:24px;margin-top:37px;border:0;cursor:pointer}@media screen and (max-width:881px){.profile__edit-btn{margin-top:0;align-self:center}}
-.profile__add-btn{background-image:url(images/add-btn.6f41966c71dd7895857f.svg);min-width:150px;height:50px;margin:auto 0 auto auto;background-size:cover;border:0;background-color:#000;cursor:pointer}@media screen and (max-width:881px){.profile__add-btn{background-image:url(images/add-btn-320.6f86ece55e54220c5485.svg);width:282px;margin:36px auto 0}}
+.profile__edit-btn{background-image:url(images/edit-btn.a1892ea72cb87c8fc3aa.svg);background-color:#000;background-size:contain;background-repeat:no-repeat;padding:0;width:24px;height:24px;margin-top:37px;border:0;cursor:pointer;transition:opacity .3s ease-in-out}@media screen and (max-width:881px){.profile__edit-btn{margin-top:0;align-self:center}}
+.profile__add-btn{background-image:url(images/add-btn.6f41966c71dd7895857f.svg);min-width:150px;height:50px;margin:auto 0 auto auto;background-size:cover;border:0;background-color:#000;cursor:pointer;transition:opacity .3s ease-in-out}@media screen and (max-width:881px){.profile__add-btn{background-image:url(images/add-btn-320.6f86ece55e54220c5485.svg);width:282px;margin:36px auto 0}}
 .profile{display:flex;flex-direction:row;padding:40px 0 0}@media screen and (max-width:881px){.profile{flex-direction:column;padding:42px 0 0}}
 .opacity:hover{opacity:.6}
 .elements{padding-top:50px;display:grid;grid-template-columns:repeat(auto-fill,282px);grid-auto-rows:auto;grid-gap:21px 18px;justify-content:center}@media screen and (max-width:881px){.elements{padding-top:36px;grid-gap:20px}}
@@ -31,6 +32,7 @@
 .popup__field_job{margin-top:30px}
 .popup__field_name-photo{margin-top:54px}
 .popup__field_link-photo{margin-top:30px}
+.popup__field_link-avatar{margin-top:54px}
 .popup__field{font-weight:400;font-size:14px;line-height:17px;margin-right:36px;margin-left:36px;margin-bottom:13px;min-width:358px;border:0;border-bottom:1px solid rgba(0,0,0,.2);padding:0 0 13px}@media screen and (max-width:583px){.popup__field{min-width:210px}}
 .popup__field_active{border-bottom:1px solid red}
 .popup__form-field-error{position:absolute;top:calc(100% - 11px);left:35px;min-width:164px;min-height:12px;font-weight:400;font-size:12px;line-height:15px;color:red;opacity:0;transition:opacity .3s}
