@@ -10,13 +10,6 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
-// const api = new Api({
-//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-19',
-//   headers: {
-//     authorization: '264a260c-a5ff-4494-a8c2-9dd802b24892',
-//     'Content-Type': 'application/json'
-//   }
-// });
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-19",
@@ -94,7 +87,7 @@ function createCard(item) {
   return card.generateCard();
 }
 
-// подгруз карточек с сервера
+
 const addCardHandler = new Section(
   {
     renderer: (item) => {
@@ -207,11 +200,16 @@ formValidatorAddImg.enableValidation();
 const popupAddForm = new PopupWithForm((item) => {
   api
     .createCard(data)
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
+  )
     .then((result) => {
       addCardHandler.rendererItem(data);
     })
     .catch((err) => console.log("Ошибка при создании карточки на сервере"));
-  addCardHandler.addItemStart(createCard(item));
+  addCardHandler.createCard(item);
   popupAddForm.close();
 }, data.template.formAdd);
 
