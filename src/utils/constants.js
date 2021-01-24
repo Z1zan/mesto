@@ -68,6 +68,8 @@ export const popupImageName = document.querySelector(".popup-img__name");
 
 export const avatarBtn = document.querySelector(".submit-avatar-btn");
 export const editBtn = document.querySelector(".submit-edit-btn");
+export const delBtn = document.querySelector(".submit-del-btn");
+export const addBtn = document.querySelector(".submit-add-btn");
 
 export const avatarOverlay = document.querySelector(".profile__avatar-overlay");
 export const avatarInput = document.querySelector(".popup__field_link-avatar");

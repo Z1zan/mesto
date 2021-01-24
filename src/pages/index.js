@@ -10,6 +10,13 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
+// const api = new Api({
+//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-19',
+//   headers: {
+//     authorization: '264a260c-a5ff-4494-a8c2-9dd802b24892',
+//     'Content-Type': 'application/json'
+//   }
+// });
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-19",
@@ -172,7 +179,7 @@ data.avatarOverlay.addEventListener("click", () => {
 //удаление карточки через попап
 export const deleteCardPopup = new PopupWithForm(() => {
   const idCard = data.template.formDelete.elements.cardId.value;
-  // data.avatarBtn.textContent = "Удаление..."
+  data.delBtn.textContent = "Удаление..."
   api
     .removeCard(idCard)
     .then((res) =>
@@ -186,7 +193,8 @@ export const deleteCardPopup = new PopupWithForm(() => {
       card.deleteHandler();
       deleteCardPopup.close();
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))
+    .finally(() => data.delBtn.textContent = "Да")
 }, data.template.formDelete);
 deleteCardPopup.setEventListeners();
 
@@ -198,18 +206,20 @@ formValidatorAddImg.enableValidation();
 
 //добавление карточки на сервер и на монитор
 const popupAddForm = new PopupWithForm((item) => {
+  data.addBtn.textContent = "Создание..."
   api
-    .createCard(data)
+    .createCard(item)
     .then((res) =>
     res.ok
       ? res.json()
       : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
   )
     .then((result) => {
-      addCardHandler.rendererItem(data);
+      addCardHandler.rendererItem(item);
     })
-    .catch((err) => console.log("Ошибка при создании карточки на сервере"));
-  addCardHandler.createCard(item);
+    .catch((err) => console.log("Ошибка при создании карточки на сервере"))
+    .finally(() => data.addBtn.textContent = "Создать")
+  addCardHandler.addItemStart(createCard(item));
   popupAddForm.close();
 }, data.template.formAdd);
 
