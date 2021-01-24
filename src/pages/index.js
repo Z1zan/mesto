@@ -84,8 +84,8 @@ function createCard(item) {
     data.myUserId
   );
 
-  const cardItem = card.generateCard();
-  return cardItem;
+  // const cardItem = card.generateCard();
+  return card.generateCard();
 }
 
 // подгруз карточек с сервера
