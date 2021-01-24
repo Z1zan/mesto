@@ -202,12 +202,12 @@ formValidatorAddImg.enableValidation();
 //добавление карточки на сервер и на монитор
 const popupAddForm = new PopupWithForm( 
   (item) => {
-    // api
-    //   .createCard(data)
-    //   .then((result) => {
-    //     addCardHandler.rendererItem(data);
-    //   })
-    //   .catch((err) => console.log("Ошибка при создании карточки на сервере"));
+    api
+      .createCard(data)
+      .then((result) => {
+        addCardHandler.rendererItem(data);
+      })
+      .catch((err) => console.log("Ошибка при создании карточки на сервере"));
     addCardHandler.addItemStart(createCard(item));
     popupAddForm.close();
 }, data.template.formAdd);
