@@ -1,9 +1,15 @@
-
 export default class Card {
-  constructor(name, link, cardSelector, { handleCardClick }) {
-    this._name = name;
-    this._link = link;
+  constructor(data, cardSelector, handleDeleteButtonClick, handleLikeClick, handleUnlikeClick, { handleCardClick }, myId) {
+    this._name = data.name;
+    this._link = data.link;
+    this._cardId = data._id;
+    this._likes = data.likes;
+    this._ownerId = data.owner._id;
+    this._myId = myId;
     this._cardSelector = cardSelector;
+    this._handleDeleteButtonClick = handleDeleteButtonClick.bind(this);
+    this._handleLikeClick = handleLikeClick.bind(this);
+    this._handleUnlikeClick = handleUnlikeClick.bind(this);
     this._handleCardClick = handleCardClick;
     this._element = this._getTemplate();
     this._cardImgImg = this._element.querySelector(".element__image");
@@ -22,23 +28,52 @@ export default class Card {
     );
   }
 
-  _deleteHandler() {
+  getId() {
+    return this._cardId;
+  }
+
+  deleteHandler() {
+    // console.log("hekkkkkss")
     this._element.remove();
     this._element = null;
   }
 
-  _likeHandler() {
-    this._cardLike.classList.toggle("element__like-btn_active");
+  _likeHandler(likeItem) {
+    // this._cardLike.classList.toggle("element__like-btn_active");
+    if (!likeItem.classList.contains("element__like-btn_active")) {
+      this._handleLikeClick()
+    } else {
+      this._handleUnlikeClick()
+    }
   }
 
 
   _setListeners() {
-    this._cardDelete.addEventListener("click", () => {
-      this._deleteHandler();
-    });
+    // this._cardDelete.addEventListener("click", () => {
+    //   this.deleteHandler();
+    // });  //старый
+
+
+    this._ownerId === this._myId
+      ? this._cardDelete.addEventListener("click", this._handleDeleteButtonClick)
+      : this._cardDelete.style.display = "none";
+
+    // this._cardDelete.addEventListener("click", () => {
+    //   this._handleDeleteButtonClick()
+    // });
+
+    // this._cardDelete.addEventListener("click", () => {
+      // deleteCardPopup.open();
+    // })
+
+    // this._cardLike.addEventListener("click", () => {
+    //   this._likeHandler();
+    // });
     this._cardLike.addEventListener("click", () => {
-      this._likeHandler();
+      this._likeHandler(this._cardLike, this._element);
     });
+
+
     this._cardImgImg.addEventListener("click", () => {
       this._handleCardClick(this._name, this._link);
     });
@@ -48,6 +83,8 @@ export default class Card {
     this._cardImgName.textContent = this._name;
     this._cardImgImg.alt = this._name;
     this._cardImgImg.src = this._link;
+
+    this._element.id = this._cardId;
 
     this._setListeners();
 
