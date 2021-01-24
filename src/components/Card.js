@@ -58,22 +58,10 @@ export default class Card {
     //   this.deleteHandler();
     // });  //старый
 
-
     this._ownerId === this._myId
       ? this._cardDelete.addEventListener("click", this._handleDeleteButtonClick)
       : this._cardDelete.style.display = "none";
 
-    // this._cardDelete.addEventListener("click", () => {
-    //   this._handleDeleteButtonClick()
-    // });
-
-    // this._cardDelete.addEventListener("click", () => {
-      // deleteCardPopup.open();
-    // })
-
-    // this._cardLike.addEventListener("click", () => {
-    //   this._likeHandler();
-    // });
     this._cardLike.addEventListener("click", () => {
       this._likeHandler(this._cardLike, this._element);
     });
@@ -91,7 +79,7 @@ export default class Card {
 
     this._element.id = this._cardId;
 
-    this._setListeners();
+    this._setListeners(this._element);
 
     this._setLikes(this._element);
 

@@ -48,11 +48,14 @@ function createCard(item) {
       api
         .likeCard(item._id)
         .then((res) =>
-          res.ok ? res.json() : Promise.reject(`Ошибка лайка карточки: ${res.status}`)
+          res.ok
+            ? res.json()
+            : Promise.reject(`Ошибка лайка карточки: ${res.status}`)
         )
         .then((item) => {
           const cardElement = document.getElementById(`${item._id}`);
-          cardElement.querySelector(".element__like-number").textContent = item.likes.length;
+          cardElement.querySelector(".element__like-number").textContent =
+            item.likes.length;
           cardElement
             .querySelector(".element__like-btn")
             .classList.add("element__like-btn_active");
@@ -64,17 +67,20 @@ function createCard(item) {
       api
         .unLikeCard(item._id)
         .then((res) =>
-          res.ok ? res.json() : Promise.reject(`Ошибка дизлайка карточки: ${res.status}`)
+          res.ok
+            ? res.json()
+            : Promise.reject(`Ошибка дизлайка карточки: ${res.status}`)
         )
         .then((item) => {
           const cardElement = document.getElementById(`${item._id}`);
-          cardElement.querySelector(".element__like-number").textContent = item.likes.length;
+          cardElement.querySelector(".element__like-number").textContent =
+            item.likes.length;
           cardElement
             .querySelector(".element__like-btn")
             .classList.remove("element__like-btn_active");
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
         }),
     {
       handleCardClick: () => {
@@ -98,24 +104,26 @@ const addCardHandler = new Section(
   data.template.cardContainer
 );
 
-
 // изменение профиля с последующей отправкой на сервер +++++++++++++
-const editPopupForm = new PopupWithForm( 
-  (formData) => {
-    data.editBtn.textContent = "Сохранение...";
-    api
-      .setUserInfo(formData)
-      .then((res) =>
+const editPopupForm = new PopupWithForm((formData) => {
+  data.editBtn.textContent = "Сохранение...";
+  api
+    .setUserInfo(formData)
+    .then((res) =>
       res.ok
         ? res.json()
         : Promise.reject(`Ошибка изменения профиля: ${res.status}`)
-      )
-      .then((data) => {
-        userInfo.setUserInfo({name: data.name, about: data.about, avatar: data.avatar});
-        editPopupForm.close();
-      })
-      .catch((err) => console.log(err))
-      .finally(() => (data.editBtn.textContent = "Сохранить"))
+    )
+    .then((data) => {
+      userInfo.setUserInfo({
+        name: data.name,
+        about: data.about,
+        avatar: data.avatar,
+      });
+      editPopupForm.close();
+    })
+    .catch((err) => console.log(err))
+    .finally(() => (data.editBtn.textContent = "Сохранить"));
 }, data.template.formEdit);
 
 editPopupForm.setEventListeners();
@@ -136,22 +144,21 @@ const formValidatorAvatar = new FormValidation(
 formValidatorAvatar.enableValidation();
 
 // изменение аватара +++++++++++++++
-const changeAvatar = new PopupWithForm( 
-  (formData) => {
-    data.avatarBtn.textContent = "Сохранение...";
-    api
-      .setAvatar(formData)
-      .then((res) =>
-        res.ok
-          ? res.json()
-          : Promise.reject(`Ошибка изменения аватара: ${res.status}`)
-      )
-      .then((formData) => {
-        data.avatarOutput.src = formData.avatar;
-        changeAvatar.close();
-      })
-      .catch((err) => console.log(err))
-      .finally(() => (data.avatarBtn.textContent = "Сохранить"));
+const changeAvatar = new PopupWithForm((formData) => {
+  data.avatarBtn.textContent = "Сохранение...";
+  api
+    .setAvatar(formData)
+    .then((res) =>
+      res.ok
+        ? res.json()
+        : Promise.reject(`Ошибка изменения аватара: ${res.status}`)
+    )
+    .then((formData) => {
+      data.avatarOutput.src = formData.avatar;
+      changeAvatar.close();
+    })
+    .catch((err) => console.log(err))
+    .finally(() => (data.avatarBtn.textContent = "Сохранить"));
 }, data.template.formAvatar);
 changeAvatar.setEventListeners();
 
@@ -170,27 +177,24 @@ data.avatarOverlay.addEventListener("click", () => {
 // })
 
 //удаление карточки через попап
-export const deleteCardPopup = new PopupWithForm( 
-  () => {
-    const idCard = data.template.formDelete.elements.cardId.value
-    // data.avatarBtn.textContent = "Удаление..."
-    api
-      .removeCard(idCard)
-      .then((res) =>
-        res.ok
-          ? res.json()
-          : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
-      )
-      .then(() => {
-        const card = document.querySelector("#idCard");
-        console.log(card);
-        card.deleteHandler();
-        deleteCardPopup.close();
-      })
-      .catch((err) => console.log(err));
-},
-data.template.formDelete
-);
+export const deleteCardPopup = new PopupWithForm(() => {
+  const idCard = data.template.formDelete.elements.cardId.value;
+  // data.avatarBtn.textContent = "Удаление..."
+  api
+    .removeCard(idCard)
+    .then((res) =>
+      res.ok
+        ? res.json()
+        : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
+    )
+    .then(() => {
+      const card = document.querySelector("#idCard");
+      console.log(card);
+      card.deleteHandler();
+      deleteCardPopup.close();
+    })
+    .catch((err) => console.log(err));
+}, data.template.formDelete);
 deleteCardPopup.setEventListeners();
 
 const formValidatorAddImg = new FormValidation(
@@ -200,16 +204,15 @@ const formValidatorAddImg = new FormValidation(
 formValidatorAddImg.enableValidation();
 
 //добавление карточки на сервер и на монитор
-const popupAddForm = new PopupWithForm( 
-  (item) => {
-    api
-      .createCard(data)
-      .then((result) => {
-        addCardHandler.rendererItem(data);
-      })
-      .catch((err) => console.log("Ошибка при создании карточки на сервере"));
-    addCardHandler.addItemStart(createCard(item));
-    popupAddForm.close();
+const popupAddForm = new PopupWithForm((item) => {
+  api
+    .createCard(data)
+    .then((result) => {
+      addCardHandler.rendererItem(data);
+    })
+    .catch((err) => console.log("Ошибка при создании карточки на сервере"));
+  addCardHandler.addItemStart(createCard(item));
+  popupAddForm.close();
 }, data.template.formAdd);
 
 popupAddForm.setEventListeners();
@@ -220,12 +223,6 @@ data.addButton.addEventListener("click", () => {
 });
 
 
-// получение карточек с сервера +++++++++
-api
-  .getInitialCards()
-  .then((result) => {
-    addCardHandler.rendererItem(result);
-  });
 
 const formValidatorEditProfile = new FormValidation(
   data.allSelectors.formSelectorEdit,
@@ -242,7 +239,26 @@ api
       : Promise.reject(`Ошибка получения профиля: ${res.status}`)
   )
   .then((data) => {
-    userInfo.setUserInfo({name: data.name, about: data.about, avatar: data.avatar});
+    userInfo.setUserInfo({
+      name: data.name,
+      about: data.about,
+      avatar: data.avatar,
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  // получение карточек с сервера +++++++++
+api
+  .getInitialCards()
+  // .then((res) =>
+  //   res.ok
+  //     ? res.json()
+  //     : Promise.reject(`Ошибка загрузки карточек: ${res.status}`)
+  // )
+  .then((result) => {
+    addCardHandler.rendererItem(result)
   })
   .catch((err) => {
     console.log(err);
