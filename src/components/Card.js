@@ -35,6 +35,7 @@ export default class Card {
   deleteHandler() {
     console.log(this._element);
     this._element.remove();
+    this._element = null;
 
   }
 

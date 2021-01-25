@@ -188,9 +188,10 @@ export const deleteCardPopup = new PopupWithForm(() => {
         : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
     )
     .then(() => {
-      const card = document.querySelector("#idCard");
+      const card = document.getElementById(`${idCard}`);
       console.log(card);
-      card.deleteHandler();
+      card.remove();
+      console.log(card);
       deleteCardPopup.close();
     })
     .catch((err) => console.log(err))
@@ -214,12 +215,13 @@ const popupAddForm = new PopupWithForm((item) => {
       ? res.json()
       : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
   )
-    .then((result) => {
-      addCardHandler.rendererItem(item);
+    .then(() => {
+      addCardHandler.addItemStart(createCard(item));
+      popupAddForm.close();
     })
     .catch((err) => console.log("Ошибка при создании карточки на сервере"))
     .finally(() => data.addBtn.textContent = "Создать")
-  addCardHandler.addItemStart(createCard(item));
+  // addCardHandler.addItemStart(createCard(item));
   popupAddForm.close();
 }, data.template.formAdd);
 
