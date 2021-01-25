@@ -13,7 +13,7 @@ export default class Api {
     .then(response => response.ok ? response.json() : Promise.reject(`Ошибка загрузки карточек: ${response.status}`))
   }
 
-  createCard(data) {
+  createCardOne(data) {
     return fetch(`${this.baseUrl}/cards`, {
       method: 'POST',
       headers: {

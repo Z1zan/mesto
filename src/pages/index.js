@@ -189,9 +189,7 @@ export const deleteCardPopup = new PopupWithForm(() => {
     )
     .then(() => {
       const card = document.getElementById(`${idCard}`);
-      console.log(card);
       card.remove();
-      console.log(card);
       deleteCardPopup.close();
     })
     .catch((err) => console.log(err))
@@ -209,20 +207,20 @@ formValidatorAddImg.enableValidation();
 const popupAddForm = new PopupWithForm((item) => {
   data.addBtn.textContent = "Создание..."
   api
-    .createCard(item)
+    .createCardOne(item)
     .then((res) =>
-    res.ok
-      ? res.json()
-      : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
-  )
-    .then(() => {
+      res.ok
+        ? res.json()
+        : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
+    )
+    .then((item) => {
       addCardHandler.addItemStart(createCard(item));
       popupAddForm.close();
     })
-    .catch((err) => console.log("Ошибка при создании карточки на сервере"))
+    .catch((err) => {
+      console.log(err)
+    })
     .finally(() => data.addBtn.textContent = "Создать")
-  // addCardHandler.addItemStart(createCard(item));
-  popupAddForm.close();
 }, data.template.formAdd);
 
 popupAddForm.setEventListeners();

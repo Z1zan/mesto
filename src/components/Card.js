@@ -56,11 +56,8 @@ export default class Card {
 
 
   _setListeners() {
-    // this._cardDelete.addEventListener("click", () => {
-    //   this.deleteHandler();
-    // });  //старый
 
-    this._ownerId === this._myId
+    this._myId == this._ownerId
       ? this._cardDelete.addEventListener("click", this._handleDeleteButtonClick)
       : this._cardDelete.style.display = "none";
 
