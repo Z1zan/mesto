@@ -10,7 +10,9 @@ export default class Api {
         authorization: this._token
       }
     })
-    .then(response => response.ok ? response.json() : Promise.reject(`Ошибка загрузки карточек: ${response.status}`))
+    .then(response => response.ok 
+      ? response.json() 
+      : Promise.reject(`Ошибка загрузки карточек: ${response.status}`))
   }
 
   createCardOne(data) {
@@ -25,7 +27,11 @@ export default class Api {
         link: data.link
       })
     })
-    // .then(result => result.ok ? result.json() : Promise.reject(`Ошибка создания карточки: ${result.status}`))
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка создания карточки: ${res.status}`)
+  )
   }
 
   getUserInfo() {
@@ -35,6 +41,11 @@ export default class Api {
         authorization: this._token
       }
     })
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка получения профиля: ${res.status}`)
+  )
   }
 
     setUserInfo(data) {
@@ -50,6 +61,11 @@ export default class Api {
         avatar: data.avatar
       })
     })
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка изменения профиля: ${res.status}`)
+  )
   }
 
   setAvatar(link) {
@@ -63,6 +79,11 @@ export default class Api {
         avatar: link.avatar
       })
     })
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка изменения профиля: ${res.status}`)
+    )
   }
 
   removeCard(cardId) {
@@ -72,7 +93,11 @@ export default class Api {
         authorization: this._token,
       }
     })
-    // .then(result => result.ok ? result.json() : Promise.reject(`Ошибка удаления карточка: ${result.status}`))
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
+    )
   }
 
   likeCard(cardId) {
@@ -83,6 +108,11 @@ export default class Api {
         'Content-Type': 'application/json'
       }
     })
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка лайка карточки: ${res.status}`)
+    )
   }
 
   unLikeCard(cardId) {
@@ -92,14 +122,11 @@ export default class Api {
         authorization: this._token,
       }
     })
+    .then((res) =>
+    res.ok
+      ? res.json()
+      : Promise.reject(`Ошибка дизлайка карточки: ${res.status}`)
+    )
   }
 
 }
-
-// const api = new Api({
-//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-19',
-//   headers: {
-//     authorization: '264a260c-a5ff-4494-a8c2-9dd802b24892',
-//     'Content-Type': 'application/json'
-//   }
-// }); 

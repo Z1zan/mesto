@@ -31,9 +31,9 @@ const popupWithImg = new PopupWithImage(
 popupWithImg.setEventListeners();
 
 const userInfo = new UserInfo({
-  nameSelector: data.nameOutput,
-  jobSelector: data.jobOutput,
-  avatarSelector: data.avatarOutput,
+  name: data.nameOutput,
+  job: data.jobOutput,
+  avatar: data.avatarOutput,
 });
 
 function createCard(item) {
@@ -47,11 +47,7 @@ function createCard(item) {
     () =>
       api
         .likeCard(item._id)
-        .then((res) =>
-          res.ok
-            ? res.json()
-            : Promise.reject(`Ошибка лайка карточки: ${res.status}`)
-        )
+
         .then((item) => {
           const cardElement = document.getElementById(`${item._id}`);
           cardElement.querySelector(".element__like-number").textContent =
@@ -66,11 +62,7 @@ function createCard(item) {
     () =>
       api
         .unLikeCard(item._id)
-        .then((res) =>
-          res.ok
-            ? res.json()
-            : Promise.reject(`Ошибка дизлайка карточки: ${res.status}`)
-        )
+
         .then((item) => {
           const cardElement = document.getElementById(`${item._id}`);
           cardElement.querySelector(".element__like-number").textContent =
@@ -109,11 +101,7 @@ const editPopupForm = new PopupWithForm((formData) => {
   data.editBtn.textContent = "Сохранение...";
   api
     .setUserInfo(formData)
-    .then((res) =>
-      res.ok
-        ? res.json()
-        : Promise.reject(`Ошибка изменения профиля: ${res.status}`)
-    )
+
     .then((data) => {
       userInfo.setUserInfo({
         name: data.name,
@@ -129,7 +117,8 @@ const editPopupForm = new PopupWithForm((formData) => {
 editPopupForm.setEventListeners();
 
 data.editButton.addEventListener("click", () => {
-  formValidatorEditProfile.disabledButton();
+  // formValidatorEditProfile.disabledButton();
+  formValidatorEditProfile.resetValidation();
   editPopupForm.open();
 
   const profileData = userInfo.getUserInfo();
@@ -148,11 +137,7 @@ const changeAvatar = new PopupWithForm((formData) => {
   data.avatarBtn.textContent = "Сохранение...";
   api
     .setAvatar(formData)
-    .then((res) =>
-      res.ok
-        ? res.json()
-        : Promise.reject(`Ошибка изменения аватара: ${res.status}`)
-    )
+
     .then((formData) => {
       data.avatarOutput.src = formData.avatar;
       changeAvatar.close();
@@ -163,7 +148,8 @@ const changeAvatar = new PopupWithForm((formData) => {
 changeAvatar.setEventListeners();
 
 data.avatarOverlay.addEventListener("click", () => {
-  formValidatorAvatar.disabledButton();
+  // formValidatorAvatar.disabledButton();
+  formValidatorAvatar.resetValidation();
   changeAvatar.open();
 });
 
@@ -182,11 +168,7 @@ export const deleteCardPopup = new PopupWithForm(() => {
   data.delBtn.textContent = "Удаление..."
   api
     .removeCard(idCard)
-    .then((res) =>
-      res.ok
-        ? res.json()
-        : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
-    )
+
     .then(() => {
       const card = document.getElementById(`${idCard}`);
       card.remove();
@@ -208,11 +190,7 @@ const popupAddForm = new PopupWithForm((item) => {
   data.addBtn.textContent = "Создание..."
   api
     .createCardOne(item)
-    .then((res) =>
-      res.ok
-        ? res.json()
-        : Promise.reject(`Ошибка удаления картинки: ${res.status}`)
-    )
+
     .then((item) => {
       addCardHandler.addItemStart(createCard(item));
       popupAddForm.close();
@@ -226,7 +204,8 @@ const popupAddForm = new PopupWithForm((item) => {
 popupAddForm.setEventListeners();
 
 data.addButton.addEventListener("click", () => {
-  formValidatorAddImg.disabledButton();
+  // formValidatorAddImg.disabledButton();
+  formValidatorAddImg.resetValidation();
   popupAddForm.open();
 });
 
@@ -241,11 +220,7 @@ formValidatorEditProfile.enableValidation();
 // получение с сервера информации о профиле ++++++++
 api
   .getUserInfo()
-  .then((res) =>
-    res.ok
-      ? res.json()
-      : Promise.reject(`Ошибка получения профиля: ${res.status}`)
-  )
+
   .then((data) => {
     userInfo.setUserInfo({
       name: data.name,
@@ -260,11 +235,6 @@ api
   // получение карточек с сервера +++++++++
 api
   .getInitialCards()
-  // .then((res) =>
-  //   res.ok
-  //     ? res.json()
-  //     : Promise.reject(`Ошибка загрузки карточек: ${res.status}`)
-  // )
   .then((result) => {
     addCardHandler.rendererItem(result)
   })

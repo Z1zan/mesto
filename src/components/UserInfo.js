@@ -1,9 +1,9 @@
 
 export default class UserInfo {
-  constructor({nameSelector, jobSelector, avatarSelector}) {
-    this._name = nameSelector;
-    this._job = jobSelector;
-    this._avatar = avatarSelector;
+  constructor({name, job, avatar}) {
+    this._name = name;
+    this._job = job;
+    this._avatar = avatar;
   }
 
   getUserInfo() {

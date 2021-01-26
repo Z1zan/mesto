@@ -5,7 +5,7 @@ class FormValidation {
     this._inputSelector = allSelectors.inputSelector;
     this._submitButtonSelector = allSelectors.submitButtonSelector;
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    this._formList = Array.from(document.querySelectorAll(this._formSelector));
+    this._formList = document.querySelectorAll(this._formSelector);
     this._button = this._formElement.querySelector(this._submitButtonSelector);
     this._inactiveButtonClass = allSelectors.inactiveButtonClass;
     this._inputErrorClass = allSelectors.inputErrorClass;
@@ -83,18 +83,21 @@ class FormValidation {
     });
   };
   
+  resetValidation() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement)
+    });
 
+    this._toggleButtonState();
+  }
   
   enableValidation() {
-    this._formList.forEach(() => {
-      const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-  
-      this._formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-        this.disabledButton(buttonElement);
-      });
-      this._setEventListeners();
+    this._formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this.disabledButton();
     });
+    this._setEventListeners();
   };
+
 }
 export default FormValidation;
