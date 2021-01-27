@@ -10,13 +10,6 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
-// const api = new Api({
-//   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-19',
-//   headers: {
-//     authorization: '264a260c-a5ff-4494-a8c2-9dd802b24892',
-//     'Content-Type': 'application/json'
-//   }
-// });
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-19",
@@ -43,18 +36,26 @@ function createCard(item) {
     () => {
       data.template.formDelete.elements.cardId.value = item._id; //получили id карточки
       deleteCardPopup.open();
+      
+      deleteCardPopup.setSubmitAction(() => {
+        data.delBtn.textContent = "Удаление..."
+        api.removeCard(item._id)
+          .then(() => {
+            card.deleteHandler();
+            deleteCardPopup.close();
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+          .finally(() => data.delBtn.textContent = "Да")
+      })
+
     },
     () =>
       api
         .likeCard(item._id)
-
         .then((item) => {
-          const cardElement = document.getElementById(`${item._id}`);
-          cardElement.querySelector(".element__like-number").textContent =
-            item.likes.length;
-          cardElement
-            .querySelector(".element__like-btn")
-            .classList.add("element__like-btn_active");
+          card.updateLikes(item.likes)
         })
         .catch((err) => {
           console.log(err);
@@ -62,14 +63,8 @@ function createCard(item) {
     () =>
       api
         .unLikeCard(item._id)
-
         .then((item) => {
-          const cardElement = document.getElementById(`${item._id}`);
-          cardElement.querySelector(".element__like-number").textContent =
-            item.likes.length;
-          cardElement
-            .querySelector(".element__like-btn")
-            .classList.remove("element__like-btn_active");
+          card.downgradeLikes(item.likes)
         })
         .catch((err) => {
           console.log(err);
@@ -82,7 +77,6 @@ function createCard(item) {
     data.myUserId
   );
 
-  // const cardItem = card.generateCard();
   return card.generateCard();
 }
 
@@ -153,29 +147,10 @@ data.avatarOverlay.addEventListener("click", () => {
   changeAvatar.open();
 });
 
-// было удаление
-// submitForm: (data => {
-//   api
-//     .removeCard(card.getId())
-//     .then(() => card.deleteHandler())
-//     .catch((err) => console.log('Ошибка удаления карточки'))
-// })
-// })
 
 //удаление карточки через попап
 export const deleteCardPopup = new PopupWithForm(() => {
-  const idCard = data.template.formDelete.elements.cardId.value;
-  data.delBtn.textContent = "Удаление..."
-  api
-    .removeCard(idCard)
 
-    .then(() => {
-      const card = document.getElementById(`${idCard}`);
-      card.remove();
-      deleteCardPopup.close();
-    })
-    .catch((err) => console.log(err))
-    .finally(() => data.delBtn.textContent = "Да")
 }, data.template.formDelete);
 deleteCardPopup.setEventListeners();
 
