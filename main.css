@@ -48,7 +48,7 @@
 
 
 .popup-img__close-btn{top:-50px;right:-50px}@media screen and (max-width:354px){.popup-img__close-btn{top:-50px;right:-13px}}
-.popup-img__container{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);max-width:75vw;max-height:75vh;display:flex;flex-direction:column;justify-content:center;align-self:center;z-index:5}
+.popup-img__container{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);max-width:75vw;max-height:75vh;display:flex;flex-direction:column;justify-content:center;align-self:center;z-index:100}
 .popup-img__img{max-width:75vw;max-height:75vh;-o-object-fit:cover;object-fit:cover}
 .popup-img__name{margin:10px 12px 0 0;max-width:291px;max-height:12px;font-weight:400;font-size:12px;color:#fff}
 
